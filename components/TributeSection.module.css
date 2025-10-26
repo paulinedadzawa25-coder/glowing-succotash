@@ -1,0 +1,137 @@
+.tributeSection {
+  background: #f6f4ed;
+  padding: 4rem 1.5rem;
+  position: relative;
+}
+
+
+
+.tributesTitle {
+  font-size: 2rem;
+  color: #3c3c3c;
+  font-weight: 500;
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.tributesTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -0.75rem;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #d4d4d4;
+}
+
+.tributeContent {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.tributeInfo {
+  text-align: right;
+  padding-right: 2rem;
+  border-right: 1px solid #d4d4d4;
+}
+
+.tributeFrom {
+  font-size: 1.1rem;
+  color: #3c3c3c;
+  font-weight: 400;
+  margin: 0;
+}
+
+.tributeFrom span {
+  font-weight: 600;
+}
+
+.position {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.tributeText {
+  color: #3c3c3c;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.tributeText p {
+  margin: 0 0 1.5rem;
+}
+
+.tributeText p:last-child {
+  margin-bottom: 0;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #d4d4d4;
+}
+
+.navButton {
+  background: none;
+  border: 1px solid #868a6a;
+  color: #868a6a;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.navButton:hover {
+  background: #868a6a;
+  color: #fff;
+}
+
+.readMore {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #3c3c3c;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: opacity 0.2s ease;
+}
+
+.readMore:hover {
+  opacity: 0.8;
+}
+
+.readMore svg {
+  margin-left: 0.25rem;
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .tributeSection {
+    padding: 3rem 1rem;
+  }
+
+  .tributeContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .tributeInfo {
+    text-align: left;
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid #d4d4d4;
+    padding-bottom: 1rem;
+  }
+}

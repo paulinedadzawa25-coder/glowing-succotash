@@ -1,0 +1,16 @@
+.viewMoreButton {
+  display: block;
+  margin: 4rem auto 0;
+  background: #534741;
+  color: #F4F2EC;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: var(--font-albert-sans);
+}
+
+.viewMoreButton:hover {
+  background: #675651;
+}

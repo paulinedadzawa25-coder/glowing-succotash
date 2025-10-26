@@ -1,0 +1,294 @@
+.main {
+    min-height: 100vh;
+    padding: 0 0 80px;
+    background: #F4F2EC;
+    margin-top: -100px;
+}
+
+.heroImage {
+    width: 100%;
+    height: 550px;
+    position: relative;
+    background: linear-gradient(to right, #2d4027, #2d4027 calc((100% - 1400px) / 2), transparent calc((100% - 1400px) / 2), transparent calc(100% - (100% - 1400px) / 2), #2d4027 calc(100% - (100% - 1400px) / 2));
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.imageWrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+    aspect-ratio: auto;
+    padding: 0 4rem;
+}
+
+.heroImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .imageWrapper {
+        padding: 0 2rem;
+    }
+}
+
+.heroOverlay {
+    display: none;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 6.4rem;
+}
+
+@media (max-width: 768px) {
+    .heroContainer {
+        padding: 0 2rem;
+    }
+}
+
+.sectionTitle {
+    color: #2E4128;
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    margin-top: 2.6rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.sectionTitle::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #2E4128;
+    opacity: 0.2;
+}
+
+.announcementSection,
+.donationSection,
+.contactSection {
+    margin-bottom: 5rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}.detailRow {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.label {
+    font-weight: 600;
+    color: #222;
+    min-width: 120px;
+    font-size: 1.5rem;
+    font-family: var(--font-albert-sans);
+
+}
+
+
+.value,
+.valueColumn {
+    color: #3c3c3c;
+}
+
+.valueColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.privateNotice {
+  margin-top: 0.75rem;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #3c3c3c;
+}.privateNotice strong {
+    color: #2E4128;
+    font-weight: 500;
+}
+
+.donationText {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #3c3c3c;
+    max-width: 800px;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.contactRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 400px;
+    font-size: 1.5rem;
+}
+
+.contactName {
+    color: #222222;
+    font-weight: 500;
+}
+
+.contactNumber {
+    color: #3c3c3c;
+}
+
+.emailRow {
+    display: flex;
+    gap: 0rem;
+    align-items: center;
+
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+.labelEmail {
+    font-weight: 800;
+    color: #222222;
+    font-size: 1.5rem;
+    min-width: 120px;
+}
+
+.emailLink {
+    color: #2E4128;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.emailLink:hover {
+    opacity: 0.8;
+}
+
+.button {
+    display: inline-block;
+    background: #2E4128;
+    color: #F4F2EC;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 2rem;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: #3b5334;
+}
+
+.submitButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #534741;
+    color: #F4F2EC;
+    padding: 0.5rem 3.5rem;
+    border: none;
+    border-radius: 55;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 10rem;
+    text-decoration: none;
+}
+
+.submitButton:hover {
+    background: #675651;
+}
+
+.arrow {
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+}
+
+.submitButton:hover .arrow {
+    transform: translateX(4px);
+}
+
+.buttonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    .main {
+        padding: 0 0 60px;
+        margin-top: -80px;
+    }
+
+    .container {
+        padding: 0 2rem;
+    }
+
+    .heroImage {
+        height: 400px;
+    }
+
+    .sectionTitle {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .detailRow {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .label {
+        min-width: auto;
+    }
+
+    .contactRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .emailRow {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .emailLink {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.5rem;
+    }
+
+    .detailRow,
+    .donationText,
+    .contactRow,
+    .emailRow {
+        font-size: 1rem;
+    }
+}

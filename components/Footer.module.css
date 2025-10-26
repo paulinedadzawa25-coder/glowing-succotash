@@ -1,0 +1,160 @@
+.footer {
+  background: #82846D;
+  height: 150px;
+  padding: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 0rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 15rem;
+  align-items: center;
+  height: 100%;
+}
+
+.mainInfo {
+  flex: 1;
+}
+
+.name {
+  font-family: var(--font-great-vibes), cursive;
+  font-size: 2.5rem;
+  font-weight: normal;
+  margin: 0 0 0.5rem 0;
+  line-height: 1;
+  color: #374836;
+  letter-spacing: 0.01em;
+}
+
+.subtitle {
+  font-family: var(--font-albert-sans);
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 0;
+  opacity: 0.9;
+  white-space: nowrap;
+}
+
+.linksContainer {
+  display: flex;
+  gap: 4rem;
+}
+
+.linkSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+}
+
+.linkSection h3 {
+  font-family: var(--font-albert-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.linkSection a {
+  font-family: var(--font-albert-sans);
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 300;
+  opacity: 0.9;
+  transition: opacity 0.2s ease;
+}
+
+.linkSection a:hover {
+  opacity: 1;
+}
+
+@media (max-width: 1200px) {
+  .content {
+    padding: 0 3rem;
+    gap: 8rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .content {
+    gap: 4rem;
+  }
+
+  .linksContainer {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    height: auto;
+    padding: 3rem 0;
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 0 2rem;
+    text-align: center;
+  }
+
+  .mainInfo {
+    flex: none;
+  }
+
+  .name {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .linksContainer {
+    gap: 3rem;
+    justify-content: center;
+  }
+
+  .linkSection {
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 2.5rem 0;
+  }
+
+  .content {
+    padding: 0 1.5rem;
+    gap: 2rem;
+  }
+
+  .name {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .linksContainer {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .linkSection h3 {
+    font-size: 0.9rem;
+  }
+
+  .linkSection a {
+    font-size: 0.9rem;
+  }
+}

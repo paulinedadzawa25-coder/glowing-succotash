@@ -1,0 +1,32 @@
+.scrollToTop {
+  margin-top: 7rem;
+  margin-right: 7rem;
+
+  width: 3rem;
+  height: 3rem;
+  background: #F4F2EC; 
+  border: 1px solid #534741;
+  border-radius: 50%;
+  color: #534741;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scrollToTop:hover {
+  background: #534741;
+  color: #F4F2EC;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .scrollToTop {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+  }
+}

@@ -83,28 +83,86 @@
   font-weight: 500;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+/* Memorial Hero Section Styles */
+.main {
+  min-height: 100vh;
+  background: #fff;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin-top: -96px; /* This will pull the content up into the header area */
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #2d2d2d;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+}
+
+.heroImageWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin-top: 0;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%;
+  filter: grayscale(100%);
+}
+
+.heroOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 100%);
+  padding: 10rem 0 4rem;
+  text-align: center;
+  color: #fff;
+  pointer-events: none;
+}
+
+.rememberText {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #fff;
+  opacity: 0.95;
+  margin: 0;
+  font-family: var(--font-geist-sans);
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 500px;
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+  .heroOverlay {
+    padding: 3rem 1rem 1.5rem;
+  }
+
+  .rememberText {
+    font-size: 0.9rem;
   }
 }
+/* Removed invalid CSS code */
 
 @media (max-width: 600px) {
   .main {

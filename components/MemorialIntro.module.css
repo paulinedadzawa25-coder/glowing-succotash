@@ -1,0 +1,162 @@
+.introSection {
+  background: var(--background);
+  padding: 80px 2rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4rem;
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.letter {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 4rem;
+  text-align: center;
+}
+
+.letter h2 {
+  font-family: 'Zapfino', serif;
+  font-size: 42px;
+  margin-bottom: 40px;
+  font-weight: normal;
+  color: #2D2D2D;
+}
+
+.letter p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #2D2D2D;
+  margin-bottom: 25px;
+  font-weight: 300;
+}
+
+.signature {
+  margin-top: 40px;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .letterContainer {
+    padding: 3rem 1.5rem;
+  }
+
+  .letterHeading {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .letter {
+    font-size: 1rem;
+  }
+
+  .signature {
+    font-size: 1.125rem;
+  }
+}
+
+.imageSection {
+  flex: 1;
+  text-align: center;
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+
+.titleContainer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.name {
+  font-size: 2.5rem;
+  color: var(--primary);
+  line-height: 1.4;
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--secondary);
+  line-height: 1.6;
+}
+
+.divider {
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--primary);
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 2.5rem);
+  height: 2px;
+  background: var(--primary);
+}
+
+.divider::before {
+  right: 50%;
+  margin-right: 2.5rem;
+}
+
+.divider::after {
+  left: 50%;
+  margin-left: 2.5rem;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--secondary);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .introSection {
+    padding: 4rem 1rem;
+    min-height: 100svh;
+  }
+
+  .name {
+    font-size: 2.75rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+  }
+
+  .logo {
+    width: 100px;
+    margin-bottom: 2rem;
+  }
+}
