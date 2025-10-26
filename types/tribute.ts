@@ -4,6 +4,7 @@ export interface Tribute {
   title?: string;
   relationship: string;
   message: string;
+  email: string;
   date: string;
   imageUrl?: string;
 }

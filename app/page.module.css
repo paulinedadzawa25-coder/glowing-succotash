@@ -25,8 +25,187 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+
+/* Quote / testimonial band with patterned background */
+.quoteSection {
+  background-color: rgba(82, 91, 76, 0.98);
+  padding: 7rem 1rem;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.quoteInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 5rem;
+  padding: 0 2rem;
+}
+
+.quoteImageWrap {
+  flex: 0 0 340px;
+}
+
+.quoteImage {
+  width: 340px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  border: 3px solid rgba(255,255,255,0.1);
+}
+
+.quoteContent {
+  flex: 1 1 auto;
+  padding: 2rem 0 0;
+  text-align: right;
+}
+
+.quoteHeading {
+  font-family: "Great Vibes", cursive;
+  font-size: 4.5rem;
+  font-weight: 400;
+  margin: 0 0 2.5rem 0;
+  color: #FFFFFF;
+  text-align: right;
+}
+
+.quoteText {
+  font-family: var(--font-geist-sans);
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #FFFFFF;
+  margin: 0 0 3rem 0;
+  max-width: 700px;
+  margin-left: auto;
+  font-weight: 300;
+}
+
+.quoteCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #FFFFFF;
+  font-size: 1.125rem;
+  cursor: pointer;
+  font-family: var(--font-geist-sans);
+  font-weight: 300;
+}
+
+.ctaText {
+  opacity: 0.95;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.ctaArrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.95;
+  transition: transform 0.2s ease;
+  margin-top: 1px;
+}
+
+.quoteCta:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 1024px) {
+  .quoteInner {
+    gap: 4rem;
+    padding: 0 1.5rem;
+  }
+
+  .quoteImageWrap {
+    flex: 0 0 300px;
+  }
+
+  .quoteImage {
+    width: 300px;
+    height: 300px;
+  }
+
+  .quoteHeading {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .quoteSection {
+    padding: 5rem 1rem;
+  }
+
+  .quoteInner {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .quoteImageWrap {
+    flex: 0 0 auto;
+  }
+
+  .quoteImage {
+    width: 260px;
+    height: 260px;
+  }
+
+  .quoteContent {
+    text-align: center;
+    padding: 0;
+  }
+
+  .quoteHeading {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .quoteText {
+    font-size: 1.25rem;
+    max-width: 100%;
+    margin: 0 auto 2rem;
+  }
+
+  .quoteCta {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .quoteSection {
+    padding: 4rem 1rem;
+  }
+
+  .quoteInner {
+    padding: 0 0.5rem;
+  }
+
+  .quoteImage {
+    width: 220px;
+    height: 220px;
+  }
+
+  .quoteHeading {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .quoteText {
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+
+  .quoteCta {
+    font-size: 1rem;
+  }
+}
   background-color: var(--foreground);
-  padding: 120px 60px;
+  padding: 60px 6px;
 }
 
 .intro {
@@ -34,12 +213,12 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  gap: 24px;
+  gap: 2px;
 }
 
 .intro h1 {
   max-width: 320px;
-  font-size: 40px;
+  font-size: 22px;
   font-weight: 600;
   line-height: 48px;
   letter-spacing: -2.4px;
@@ -86,7 +265,7 @@
 /* Memorial Hero Section Styles */
 .main {
   min-height: 100vh;
-  background: #fff;
+  background: var(--background, #F4F1EA);
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
@@ -96,34 +275,160 @@
 .container {
   width: 100%;
   max-width: 1440px;
-  margin: 0;
+  margin: 0 auto;
   position: relative;
   z-index: 1;
+  padding: 0 0rem;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 0rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1.25rem;
+  }
 }
 
 .heroSection {
   position: relative;
   width: 100%;
-  height: 100vh;
-  background: #2d2d2d;
+  min-height: 60vh;
+  background: #000;
   display: flex;
   flex-direction: column;
-  margin-top: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+  margin: 2rem 0 4rem;
 }
 
 .heroImageWrapper {
   width: 100%;
-  height: 100%;
   position: relative;
-  margin-top: 0;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.heroImage {
+.heroSec {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 10%;
-  filter: grayscale(100%);
+  position: relative;
+  background: #333;
+  filter: grayscale(100%); /* Full grayscale */
+  height: 100vh;
+  max-height: 800px;
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.heroImage {
+ width: 100%;
+  height: 100vh;
+  max-height: 800px;
+  min-height: 540px;
+  object-fit: cover; /* Changed from contain to cover for bigger appearance */
+  object-position: center center;
+  filter: grayscale(100%); /* Full grayscale */
+   transform: scale(1.5); 
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.1) 80%,
+    rgba(0,0,0,0.2) 100%
+  );
+  pointer-events: none;
+}
+
+.remembering {
+  position: relative;
+  margin-top: 3rem;
+  padding: 0.5rem 1rem;
+  background: rgba(244, 241, 234, 0.97);
+  color: var(--primary, #374836);
+  font-family: "Geist Sans", sans-serif;
+  font-size: 0.475rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+}
+
+/* Banner under hero image matching provided design */
+.bannerSection {
+  background: var(--background, #F4F1EA);
+  padding: 4.5rem 1rem 6rem;
+  text-align: center;
+  color: var(--primary, #374836);
+}
+
+.bannerInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.bannerRemember {
+  text-transform: uppercase;
+  letter-spacing: 0.6em;
+  color: #6b6b60;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+  font-family: "Geist Sans", sans-serif;
+}
+
+.bannerName {
+  font-family: var(--font-great-vibes), Georgia, serif;
+  font-size: 5.4rem;
+  line-height: 0.95;
+  margin: 0.2rem 0 1rem 0;
+  color: var(--primary, #374836);
+  font-weight: 400;
+}
+
+.bannerDivider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin: 1.5rem 0 2rem;
+}
+
+.bannerDivider .line {
+  display: block;
+  width: 28%;
+  height: 1px;
+  background: rgba(55,72,54,0.25);
+}
+
+.ornament {
+  font-size: 1.25rem;
+  color: rgba(55,72,54,0.85);
+}
+
+.bannerSubtitle {
+  color: var(--primary, #374836);
+  font-size: 1.3rem;
+  max-width: 860px;
+  margin: 0 auto;
+  line-height: 1.5;
+  padding-bottom: 1.5rem;
 }
 
 .heroOverlay {
@@ -131,35 +436,98 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 100%);
-  padding: 10rem 0 4rem;
+  padding: 6rem 1rem 5rem;
   text-align: center;
   color: #fff;
   pointer-events: none;
+  background: linear-gradient(to top, 
+    rgba(0,0,0,0.4) 0%,
+    rgba(0,0,0,0.2) 40%,
+    rgba(0,0,0,0) 100%
+  );
+}
+
+.heroBanner {
+  display: inline-block;
+  background: rgba(244, 241, 234, 0.97);
+  color: var(--foreground, #2d2d2d);
+  padding: 3rem 4rem;
+  border-radius: 3px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  transform: translateY(20%);
+  pointer-events: auto;
+  max-width: 90%;
 }
 
 .rememberText {
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.4em;
   font-size: 0.875rem;
   font-weight: 400;
-  color: #fff;
-  opacity: 0.95;
-  margin: 0;
+  color: var(--primary, #374836);
+  margin: 0 0 1rem 0;
   font-family: var(--font-geist-sans);
+  opacity: 0.9;
+}
+
+.heroTitle {
+  font-family: var(--font-dancing-script), Georgia, serif;
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--primary, #374836);
+  margin: 0.2rem 0 1rem 0;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.heroDivider {
+  height: 1px;
+  width: 140px;
+  background: rgba(55,72,54,0.25);
+  margin: 0.8rem auto;
+}
+
+.heroSubtitle {
+  color: #6b6b60;
+  font-size: 1.125rem;
+  margin: 0.8rem 0 0 0;
+  max-width: 720px;
+  letter-spacing: 0.05em;
+  font-family: var(--font-geist-sans);
+}
+
+@media (max-width: 1024px) {
+  .heroBanner {
+    padding: 2.5rem 3.5rem;
+  }
+
+  .heroTitle {
+    font-size: 4rem;
+  }
 }
 
 @media (max-width: 768px) {
   .heroSection {
-    min-height: 500px;
+    padding: 5rem 1.5rem 2rem;
   }
 
-  .heroOverlay {
-    padding: 3rem 1rem 1.5rem;
+  .remembering {
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    padding: 4rem 1rem 2rem;
   }
 
-  .rememberText {
-    font-size: 0.9rem;
+  .remembering {
+    margin-top: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    padding: 0.4rem 0.75rem;
   }
 }
 /* Removed invalid CSS code */

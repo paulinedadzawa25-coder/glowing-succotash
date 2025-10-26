@@ -13,8 +13,8 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Check if we've scrolled past the hero image (650px height)
-      setIsScrolled(window.scrollY > 550);
+      // Check if we've scrolled past 100px
+      setIsScrolled(window.scrollY > 100);
     };
 
     window.addEventListener('scroll', handleScroll);

@@ -4,19 +4,28 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: #2D4027;
-  padding: 2rem 0;
+  background: rgba(55, 72, 54, 0.95);
+  padding: 1.75rem 0;
   transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .header.transparent {
   background: transparent;
+  background-image: linear-gradient(to bottom, 
+    rgba(0,0,0,0.4) 0%,
+    rgba(0,0,0,0.2) 50%,
+    rgba(0,0,0,0) 100%
+  );
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .header.scrolled {
-  background: #2D4027;
-  padding: 1rem 0;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  background: rgba(55, 72, 54, 0.95);
+  padding: 1.25rem 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
 }
 
 .headerContent {
@@ -31,22 +40,23 @@
 .logoArea {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .logoImg {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   object-fit: contain;
   filter: brightness(0) invert(1);
+  opacity: 0.95;
 }
 
 .logoText {
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  color: #fff;
-  font-family: var(--font-geist-sans);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.95);
+  font-family: "Geist Sans", sans-serif;
   text-transform: uppercase;
 }
 
@@ -90,31 +100,33 @@
 
 .nav {
   display: flex;
-  gap: 3rem;
+  gap: 3.5rem;
 }
 
 .nav a {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.8125rem;
+  font-weight: 400;
   position: relative;
   padding-bottom: 2px;
-  font-family: var(--font-geist-sans);
+  font-family: "Geist Sans", sans-serif;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: opacity 0.2s ease;
+  letter-spacing: 0.12em;
+  transition: all 0.2s ease;
 }
 
 .nav a.active {
   text-decoration: underline;
   text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
 }
 
 .nav a:hover {
-  opacity: 0.8;
+  opacity: 1;
   text-decoration: underline;
   text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
 }
 
 @media (max-width: 1024px) {
@@ -129,7 +141,7 @@
 
 @media (max-width: 768px) {
   .header {
-    padding: 1.5rem 0;
+    padding: 1.25rem 0;
   }
 
   .headerContent {
@@ -146,14 +158,14 @@
     right: -100%;
     width: 100%;
     height: 100vh;
-    background: rgba(46, 65, 40, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(55, 72, 54, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    transition: all 0.3s ease;
+    gap: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 101;
   }
 
@@ -162,10 +174,10 @@
   }
 
   .nav a {
-    font-size: 1.2rem;
+    font-size: 1.125rem;
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .nav.open a {
@@ -173,30 +185,41 @@
     transform: translateY(0);
   }
 
+  .nav.open a:nth-child(1) { transition-delay: 0.1s; }
+  .nav.open a:nth-child(2) { transition-delay: 0.2s; }
+  .nav.open a:nth-child(3) { transition-delay: 0.3s; }
+  .nav.open a:nth-child(4) { transition-delay: 0.4s; }
+
   .logoText {
     font-size: 0.75rem;
+  }
+
+  .hamburger span {
+    height: 1.5px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
 @media (max-width: 480px) {
   .header {
-    padding: 1rem 0;
+    padding: 1.125rem 0;
   }
 
   .headerContent {
-    padding: 0 1rem;
+    padding: 0 1.25rem;
   }
 
   .logoImg {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
   }
 
   .logoText {
-    font-size: 0.7rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
   }
 
   .nav a {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 }

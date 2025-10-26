@@ -7,10 +7,9 @@
 
 .heroSection {
   width: 100%;
-  height: 650px;
+  height: 100vh;
   position: relative;
-  margin-top: -100px; /* Offset for fixed header */
-  padding-top: 100px; /* Add padding to compensate for header height */
+  margin-top: -100px;
   background: linear-gradient(to right, 
     #2D4027,
     #2D4027 calc((100% - 1400px) / 2),
@@ -57,6 +56,98 @@
   opacity: 0.3;
   margin-top: 0.75rem;
 }
+
+.contentContainer {
+  max-width: 1200px;
+  margin: 0 auto 6rem;
+  padding: 0 2rem;
+  background: #F0EEE6; /* beige content area under the hero */
+}
+
+.titleRow {
+  padding: 3.25rem 0 2rem;
+}
+
+.brochureSection {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 3rem;
+  align-items: center;
+  padding: 3rem 0 4rem;
+}
+
+.brochureLeft {
+  padding-left: 2rem;
+}
+
+.capture {
+  font-size: 1.25rem;
+  color: #6b6b6b;
+  margin-bottom: 0.5rem;
+}
+
+.script {
+  font-family: 'Bickham Script Pro', 'Times New Roman', serif;
+  font-size: 3.25rem;
+  color: #222;
+  margin: 0.25rem 0 1rem;
+  line-height: 1;
+}
+
+.brochureLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.brochureArrow {
+  display: inline-block;
+  margin-left: 0.5rem;
+  transform: translateY(1px);
+}
+
+.brochureRight {
+  display: flex;
+  justify-content: center;
+}
+
+.photoFrame {
+  padding: 12px;
+  background: #2D4027; /* dark green frame */
+  border-radius: 18px;
+  display: inline-block;
+}
+
+.brochureImage {
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.actionsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.submitArrow, .submitButton .submitArrow {
+  margin-left: 0.5rem;
+}
+
+.scrollTopWrapper {
+  margin-left: auto;
+}
+
+.tributeLabel {
+  color: #222;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
 
 @media (max-width: 1440px) {
   .titleSection {

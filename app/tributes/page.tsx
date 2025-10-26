@@ -3,8 +3,22 @@ import Image from 'next/image';
 import styles from './page.module.css';
 import ScrollToTop from '@/components/ScrollToTop';
 import Link from 'next/link';
+import type { Tribute } from '@/types/tribute';
 
-export default function TributesPage() {
+async function getTributes(): Promise<Tribute[]> {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? ''}/api/tributes`, { cache: 'no-store' });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data as Tribute[];
+  } catch (err) {
+    return [];
+  }
+}
+
+export default async function TributesPage() {
+  const tributes = await getTributes();
+
   return (
     <main className={styles.main}>
       <div className={styles.heroSection}>
@@ -17,50 +31,73 @@ export default function TributesPage() {
           className={styles.heroImage}
         />
       </div>
-      <div className={styles.titleSection}>
-        <h1 className={styles.pageTitle}>Your Tributes</h1>
-        <div className={styles.titleUnderline}></div>
-      </div>
 
-      <section className={styles.tributesSection}>
-        <h2 className={styles.sectionTitle}>Tributes</h2>
-        <div className={styles.tributesList}>
-          <article className={styles.tribute}>
-            <div className={styles.tributeHeader}>
-              <h3 className={styles.tributeFrom}>Tribute from</h3>
-              <p className={styles.tributeName}>Sedem Dadzawa</p>
-              <p className={styles.tributeRelation}>Son, GRA</p>
-            </div>
-            <div className={styles.tributeContent}>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-              <p>Lorem ipsum dolor sit amet, cons ectetuer. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-            </div>
-          </article>
-
-          <div className={styles.tributeDivider} />
-
-          <article className={styles.tribute}>
-            <div className={styles.tributeHeader}>
-              <h3 className={styles.tributeFrom}>Tribute from</h3>
-              <p className={styles.tributeName}>Sena Dadzawa</p>
-              <p className={styles.tributeRelation}>Daughter, Cocoaboa</p>
-            </div>
-            <div className={styles.tributeContent}>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-              <p>Ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-            </div>
-          </article>
+      <div className={styles.contentContainer}>
+        <div className={styles.titleRow}>
+          <h1 className={styles.pageTitle}>Your Tributes</h1>
+          <div className={styles.titleUnderline}></div>
         </div>
 
-        <Link href="/submit-tribute" className={styles.submitButton}>
-          Submit Tribute
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </Link>
+        <section className={styles.brochureSection}>
+          <div className={styles.brochureLeft}>
+            <p className={styles.capture}>Capturing the life of</p>
+            <h2 className={styles.script}>our fiery Adobea</h2>
+            <Link href="/brochure" className={styles.brochureLink}>
+              Click to view Brochure
+              <span className={styles.brochureArrow}>⟶</span>
+            </Link>
+          </div>
 
-        <ScrollToTop />
-      </section>
+          <div className={styles.brochureRight}>
+            <div className={styles.photoFrame}>
+              <Image
+                src="/images/Tributeimg1.jpeg"
+                alt="Pauline Adobea Dadzawa"
+                width={260}
+                height={320}
+                className={styles.brochureImage}
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.tributesSection}>
+          <h2 className={styles.sectionTitle}>Tributes</h2>
+
+          <div className={styles.tributesList}>
+            {tributes.length === 0 ? (
+              <div className={styles.empty}>No tributes yet. Be the first to submit.</div>
+            ) : (
+              tributes.map((t, idx) => (
+                <React.Fragment key={t.id}>
+                  <article className={styles.tribute}>
+                    <div className={styles.tributeHeader}>
+                      <div className={styles.tributeLabel}>Tribute from</div>
+                      <div className={styles.tributeName}>{t.name}</div>
+                      <div className={styles.tributeRelation}>{t.relationship}</div>
+                    </div>
+                    <div className={styles.tributeContent}>
+                      <p>{t.message}</p>
+                    </div>
+                  </article>
+                  {idx < tributes.length - 1 && <div className={styles.tributeDivider} />}
+                </React.Fragment>
+              ))
+            )}
+          </div>
+
+          <div className={styles.actionsRow}>
+            <Link href="/submit-tribute" className={styles.submitButton}>
+              Submit Tribute
+              <span className={styles.submitArrow}>⟶</span>
+            </Link>
+
+            <div className={styles.scrollTopWrapper}>
+              <ScrollToTop />
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
