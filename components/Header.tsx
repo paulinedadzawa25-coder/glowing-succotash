@@ -13,13 +13,14 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Check if we've scrolled past 100px
-      setIsScrolled(window.scrollY > 100);
+      // Use a smaller threshold for tributes page to make transition smoother
+      const scrollThreshold = isOnTributesPage ? 50 : 100;
+      setIsScrolled(window.scrollY > scrollThreshold);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isOnTributesPage]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

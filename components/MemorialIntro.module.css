@@ -61,10 +61,13 @@
 @media (max-width: 768px) {
   .introSection {
     padding: 4rem 1rem;
+    
   }
 
   .letterWrap {
-    padding: 2rem 1rem;
+    /* padding: 6rem 7rem; */
+      padding-top: 8rem;
+
   }
 
   .letterHeading {

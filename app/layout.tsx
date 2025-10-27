@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Dancing_Script, Great_Vibes } from 'next/font/google';
-import { GeistSans } from 'geist/font';
+import localFont from 'next/font/local';
+import { Great_Vibes } from 'next/font/google';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import "./globals.css";
@@ -12,13 +12,36 @@ const greatVibes = Great_Vibes({
   variable: '--font-great-vibes',
 });
 
-const dancingScript = Dancing_Script({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-dancing-script',
+const albertSans = localFont({
+  src: [
+    {
+      path: '../public/images/Fonts/AlbertSans-Light.ttf',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: '../public/images/Fonts/AlbertSans-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/images/Fonts/AlbertSans-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../public/images/Fonts/AlbertSans-SemiBold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../public/images/Fonts/AlbertSans-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-albert-sans',
 });
-
-const geistSans = GeistSans;
 
 export const metadata: Metadata = {
   title: "Memorial - Pauline Adobea Dadzawa",
@@ -32,7 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.className} ${dancingScript.variable} ${greatVibes.variable}`}>
+      <body className={`${albertSans.variable} ${greatVibes.variable}`}>
         <Navigation />
         <main>
           {children}

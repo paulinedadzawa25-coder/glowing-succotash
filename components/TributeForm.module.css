@@ -1,6 +1,6 @@
 .formSection {
   background: #C2C2B5;
-  padding: 6rem 10rem;
+  padding: 2rem 10rem;
   position: relative;
 }
 
@@ -19,23 +19,25 @@
 
 
 .formTitle {
-  font-size: 2rem;
-  color: #3c3c3c;
+  font-size: 2.6rem;
+  color: #2e4128;
   margin-bottom: 3rem;
   font-weight: 500;
   position: relative;
-  text-align: center;
+  text-align: left;
+  font-family: var(--font-albert-sans);
+
 }
 
 .formWrapper {
   display: grid;
   grid-template-columns: 1fr 450px;
-  gap: 4rem;
+  gap: 1.4rem;
   align-items: start;
   background: transparent;
   max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 4rem;
+  margin-right: 5rem;
+  padding: 0 0rem;
 }
 
 .form {
@@ -173,6 +175,42 @@
   margin-bottom: 0.25rem;
 }
 
+.carouselWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.tributeCard {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-width: 100%;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1;
+}
+
+
 .imageSection {
   position: relative;
   align-self: flex-start;
@@ -181,7 +219,7 @@
 .formImage {
   width: 100%;
   height: auto;
-  border-radius: 8px 8px 32px 32px;
+  border-radius: 8px 8px 8px 8px;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }

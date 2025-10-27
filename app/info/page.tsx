@@ -1,9 +1,17 @@
+"use client";
 import React from 'react';
+import { useRouter } from 'next/navigation';
+
 import styles from './page.module.css';
 import Image from 'next/image';
 import ScrollToTop from '../../components/ScrollToTop';
 
 export default function InfoPage() {
+  const router = useRouter();
+
+  const navigateToTributes = () => {
+    router.push('/');
+  };
   return (
     <main className={styles.main}>
       <div className={styles.heroImage}>
@@ -18,7 +26,7 @@ export default function InfoPage() {
         </div>
       </div>
       <div className={styles.container}>
-        <section className={styles.announcementSection}>
+        <div className={styles.announcementSection}>
           <h2 className={styles.sectionTitle}>Funeral Announcement</h2>
           <div className={styles.details}>
             <div className={styles.detailRow}>
@@ -41,13 +49,13 @@ export default function InfoPage() {
               <span className={styles.value}>Black</span>
             </div>
             <div className={styles.privateNotice}>
-              <strong style={{fontSize:20, fontWeight: 'bold'}}>There will be a private burial.</strong> There will be no one week observation, no 
+              <strong style={{ fontSize: 18, fontWeight: 'bold' }}>There will be a private burial.</strong> There will be no one week observation, no
               wake keeping, no laying in state and no other funeral rites.
             </div>
           </div>
-        </section>
+        </div>
 
-        <section className={styles.donationSection}>
+        <div className={styles.donationSection}>
           <h2 className={styles.sectionTitle}>Donation Details</h2>
           <p className={styles.donationText}>
             The family will graciously accept any gifts or donations made in honour of
@@ -55,9 +63,9 @@ export default function InfoPage() {
             passions, and enduring legacy. We hope that through these efforts, her spirit
             will continue to inspire and uplift others, just as she did in life.
           </p>
-        </section>
+        </div>
 
-        <section className={styles.contactSection}>
+        <div className={styles.contactSection}>
           <h2 className={styles.sectionTitle}>Contact Details</h2>
           <div className={styles.contacts}>
             <div className={styles.contactRow}>
@@ -76,13 +84,14 @@ export default function InfoPage() {
             </div>
           </div>
           <div className={styles.buttonContainer}>
-            <button className={styles.submitButton}>
+            <button onClick={navigateToTributes}
+              className={styles.submitButton}>
               Submit Tribute
               <span className={styles.arrow}>→</span>
             </button>
             <ScrollToTop />
           </div>
-        </section>
+        </div>
       </div>
     </main>
   );

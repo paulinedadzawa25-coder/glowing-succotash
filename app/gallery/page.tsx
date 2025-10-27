@@ -18,7 +18,7 @@ function getImagesFromFolder(folderName: string) {
         path: `/images/${folderName}/${file}`,
         filename: file
       }))
-      .sort((a, b) => a.filename.localeCompare(b.filename)); // Sort images by filename
+      .sort((a, b) => a.filename.localeCompare(b.filename)); 
   } catch (error) {
     console.error(`Error reading directory ${folderName}:`, error);
     return [];

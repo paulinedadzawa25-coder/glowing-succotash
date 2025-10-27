@@ -21,7 +21,7 @@ export default function GalleryDisplay({ categories }: GalleryDisplayProps) {
   const router = useRouter();
 
   const navigateToTributes = () => {
-    router.push('/tributes');
+    router.push('/');
   };
 
   return (
@@ -52,7 +52,7 @@ export default function GalleryDisplay({ categories }: GalleryDisplayProps) {
 
         <div className={styles.galleryGrid}>
           {categories.map((category) => (
-            <section key={category.title} className={styles.gallerySection}>
+            <div key={category.title} className={styles.gallerySection}>
               <h2 className={styles.sectionTitle}>{category.title}</h2>
               <div className={styles.imageGrid}>
                 {category.images.map((image, index) => (
@@ -61,6 +61,7 @@ export default function GalleryDisplay({ categories }: GalleryDisplayProps) {
                       src={image.path}
                       alt={`${category.title} - ${image.filename}`}
                       fill
+                      style={{ objectFit: 'contain' }}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       priority={index < 4}
                       className={styles.image}
@@ -68,12 +69,12 @@ export default function GalleryDisplay({ categories }: GalleryDisplayProps) {
                   </div>
                 ))}
               </div>
-            </section>
+            </div>
           ))}
         </div>
 
         <div className={styles.buttonContainer}>
-          <button 
+          <button
             className={styles.submitButton}
             onClick={navigateToTributes}
           >

@@ -1,36 +1,56 @@
 .main {
   min-height: 100vh;
-  background-color: #F8F6F3;
-  position: relative;
-  padding-bottom: 4rem;
+  padding: 0;
+  background: #F4F2EC;
+  margin-top: -96px;
+  /* Adjust to match header height */
+  /* position: relative; */
 }
 
 .heroSection {
   width: 100%;
-  height: 100vh;
+  height: 80vh;
+  min-height: 600px;
+  max-height: 800px;
   position: relative;
-  margin-top: -100px;
-  background: linear-gradient(to right, 
-    #2D4027,
-    #2D4027 calc((100% - 1400px) / 2),
-    transparent calc((100% - 1400px) / 2),
-    transparent calc(100% - (100% - 1400px) / 2),
-    #2D4027 calc(100% - (100% - 1400px) / 2)
-  );
+  background: #2D4027;
   display: flex;
   justify-content: center;
   overflow: hidden;
+  z-index: 1;
+  padding-top: 50PX;
 }
 
 .heroImage {
-  object-fit: cover;
+     width: 100%;
+    height: 580px;
+    position: relative;
+    /* background: linear-gradient(to right, #2d4027, #2d4027 calc((100% - 1400px) / 2), transparent calc((100% - 1400px) / 2), transparent calc(100% - (100% - 1400px) / 2), #2d4027 calc(100% - (100% - 1400px) / 2)); */
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  /* object-fit: cover;
   object-position: center 20%;
-  opacity: 0.9;
+  opacity: 1;
+  position: relative; */
+  /* top: 0;
+  left: 0; */
+  /* width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease; */
+}
+
+.heroSection::after {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom,
+      rgba(45, 64, 39, 0.2) 0%,
+      rgba(45, 64, 39, 0.4) 100%);
+  z-index: 2;
 }
 
 .titleSection {
@@ -46,12 +66,15 @@
   font-size: 2.5rem;
   font-weight: 400;
   color: #2D4027;
+  font-family: var(--font-albert-sans);
+
   margin-bottom: 0.75rem;
 }
 
 .titleUnderline {
   width: 100%;
   height: 1px;
+
   background-color: #2D4027;
   opacity: 0.3;
   margin-top: 0.75rem;
@@ -59,13 +82,17 @@
 
 .contentContainer {
   max-width: 1200px;
-  margin: 0 auto 6rem;
-  padding: 0 2rem;
-  background: #F0EEE6; /* beige content area under the hero */
+  margin: 0rem auto 6rem;
+  padding: 2.5rem 2rem;
+  background: #F0EEE6;
+  position: relative;
+  z-index: 3;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .titleRow {
-  padding: 3.25rem 0 2rem;
+  padding: 1rem 0 2rem;
 }
 
 .brochureSection {
@@ -116,7 +143,8 @@
 
 .photoFrame {
   padding: 12px;
-  background: #2D4027; /* dark green frame */
+  background: #2D4027;
+  /* dark green frame */
   border-radius: 18px;
   display: inline-block;
 }
@@ -134,7 +162,8 @@
   margin-top: 3rem;
 }
 
-.submitArrow, .submitButton .submitArrow {
+.submitArrow,
+.submitButton .submitArrow {
   margin-left: 0.5rem;
 }
 
@@ -144,8 +173,9 @@
 
 .tributeLabel {
   color: #222;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 350;
+  /* margin-bottom: 0.75rem; */
 }
 
 
@@ -180,14 +210,16 @@
 }
 
 .tributesSection {
-  margin: 4rem auto;
+  margin: 1rem auto;
 }
 
 .sectionTitle {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   color: #333;
   font-weight: 400;
-  margin-bottom: 4rem;
+  font-family: var(--font-albert-sans);
+
+  margin-bottom: 1.1rem;
   position: relative;
   border-bottom: 1px solid #DDD;
   padding-bottom: 1rem;
@@ -203,6 +235,23 @@
   display: grid;
   grid-template-columns: 250px 1fr;
   gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .tribute {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .tributeHeader {
+    border-bottom: 1px solid #DDD;
+    padding-bottom: 1rem;
+  }
+
+  .tributeContent {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 }
 
 .tributeHeader {
@@ -274,9 +323,27 @@
   transform: translateX(5px);
 }
 
+@media (max-width: 1200px) {
+  .contentContainer {
+    margin: -3rem auto 5rem;
+    padding: 2rem 2rem;
+  }
+
+  .brochureSection {
+    grid-template-columns: 1fr 300px;
+    gap: 2.5rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .heroSection {
-    height: 500px;
+    height: 60vh;
+    min-height: 500px;
+  }
+
+  .contentContainer {
+    margin: -3rem 1.5rem 4rem;
+    padding: 2rem;
   }
 
   .titleSection {
@@ -287,28 +354,43 @@
     font-size: 2.25rem;
   }
 
+  .brochureSection {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .brochureLeft {
+    padding-left: 0;
+  }
+
   .tribute {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .tributeHeader {
     padding-right: 0;
-    text-align: left;
     border-bottom: 1px solid #DDD;
     padding-bottom: 1rem;
-    margin-bottom: 1rem;
   }
 }
 
 @media (max-width: 768px) {
   .heroSection {
-    height: 400px;
+    height: 50vh;
+    min-height: 400px;
+  }
+
+  .contentContainer {
+    margin: -2.5rem 1rem 3rem;
+    padding: 1.5rem;
+    border-radius: 8px 8px 0 0;
   }
 
   .titleSection {
-    padding: 0 1.5rem;
-    margin: 2rem auto;
+    padding: 0 1rem;
+    margin: 1.5rem auto;
   }
 
   .pageTitle {
@@ -316,6 +398,63 @@
   }
 
   .tributesList {
+    gap: 2.5rem;
+  }
+
+  .tributeName {
+    font-size: 1.25rem;
+  }
+
+  .tributeContent {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .actionsRow {
+    flex-direction: column;
     gap: 2rem;
+    align-items: stretch;
+  }
+
+  .submitButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .scrollTopWrapper {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    height: 40vh;
+    min-height: 300px;
+  }
+
+  .contentContainer {
+    margin: -2rem 0.75rem 2rem;
+    padding: 1.25rem;
+  }
+
+  .titleSection {
+    padding: 0 0.75rem;
+  }
+
+  .pageTitle {
+    font-size: 1.75rem;
+  }
+
+  .tributesList {
+    gap: 2rem;
+  }
+
+  .tributeDivider {
+    margin: 1.5rem 0;
+  }
+
+  .submitButton {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
   }
 }

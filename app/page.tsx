@@ -18,10 +18,12 @@ export default function Home() {
             <Image
               src="/images/Landingpage.png"
               alt="Pauline Adobea Dadzawa"
-              width={1600}
-              height={900}
+              objectFit="cover"
+              objectPosition=""
               quality={100}
               priority
+              width={1600}
+              height={900}
               className={styles.heroImage}
             />
           </div>
@@ -42,18 +44,18 @@ export default function Home() {
                 />
                 <span className={styless.line}></span>
               </div>
-                 
-               
-            
+
+
+
 
               <p className={styles.bannerSubtitle}>
                 A life of strength, service, and grace
                 <br />
                 – fulfilled in God’s divine purpose
               </p>
-                 <div className={styless.subtitleDivider}>
-            <span className={styless.subtitleLine}></span>
-          </div>
+              <div className={styless.subtitleDivider}>
+                <span className={styless.subtitleLine}></span>
+              </div>
             </div>
           </section>
 
@@ -63,32 +65,26 @@ export default function Home() {
                 <Image
                   src="/images/IMG_8166.jpg"
                   alt="Pauline speaking"
-                  width={280}
-                  height={280}
+                  width={260}
+                  height={260}
                   className={styles.quoteImage}
                 />
               </div>
 
               <div className={styles.quoteContent}>
-                <h2 className={styles.quoteHeading}>Pauline always said...</h2>
+                <h3 className={styles.quoteHeading}>Pauline always said...</h3>
                 <blockquote className={styles.quoteText}>
-                  "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh"
+                  “Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh”
                 </blockquote>
 
                 <div className={styles.quoteCta}>
-                  <div className={styles.ctaText}>Click to view Brochure</div>
-                  <div className={styles.ctaArrow}>
-                    <Image
-                      src="/images/arrow-right.svg"
-                      alt="Arrow right"
-                      width={24}
-                      height={24}
-                    />
-                  </div>
+                  <span className={styles.ctaText}>Click to view Brochure</span>
+                  <span className={styles.ctaIcon} aria-hidden>➔</span>
                 </div>
               </div>
             </div>
-          </section>          <BrochureSection />
+          </section>
+
           <TributeSection />
           <TributeForm />
         </div>

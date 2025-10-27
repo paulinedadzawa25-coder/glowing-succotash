@@ -1,17 +1,20 @@
 .tributeSection {
   background: #f6f4ed;
-  padding: 4rem 1.5rem;
+  padding: 3rem 5.5rem;
   position: relative;
 }
 
 
 
-.tributesTitle {
+.tributesTitle {        
+
   font-size: 2rem;
   color: #3c3c3c;
   font-weight: 500;
+font-family: var(--font-albert-sans);
   position: relative;
   margin-bottom: 2.5rem;
+  
 }
 
 .tributesTitle::after {
@@ -28,18 +31,20 @@
   display: grid;
   grid-template-columns: 280px 1fr;
   gap: 3rem;
+
   margin-bottom: 3rem;
 }
 
 .tributeInfo {
-  text-align: right;
-  padding-right: 2rem;
+  text-align: left;
+  padding-right: 0rem;
   border-right: 1px solid #d4d4d4;
 }
 
 .tributeFrom {
   font-size: 1.1rem;
   color: #3c3c3c;
+  font-family: var(--font-albert-sans);
   font-weight: 400;
   margin: 0;
 }
@@ -74,7 +79,7 @@
   justify-content: space-between;
   margin-top: 2rem;
   padding-top: 1.5rem;
-  border-top: 1px solid #d4d4d4;
+ 
 }
 
 .navButton {

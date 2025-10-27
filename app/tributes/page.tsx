@@ -1,29 +1,37 @@
-import React from 'react';
+"use client";
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './page.module.css';
 import ScrollToTop from '@/components/ScrollToTop';
-import Link from 'next/link';
 import type { Tribute } from '@/types/tribute';
 
-async function getTributes(): Promise<Tribute[]> {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL ?? ''}/api/tributes`, { cache: 'no-store' });
-    if (!res.ok) return [];
-    const data = await res.json();
-    return data as Tribute[];
-  } catch (err) {
-    return [];
-  }
-}
+export default function TributesPage() {
+  const [tributes, setTributes] = useState<Tribute[]>([]);
+  const router = useRouter();
 
-export default async function TributesPage() {
-  const tributes = await getTributes();
+  useEffect(() => {
+    const fetchTributes = async () => {
+      try {
+        const res = await fetch('/api/tributes', { cache: 'no-store' });
+        if (res.ok) {
+          const data = await res.json();
+          setTributes(data);
+        }
+      } catch (err) {
+        console.error('Failed to load tributes:', err);
+      }
+    };
+
+    fetchTributes();
+  }, []);
 
   return (
     <main className={styles.main}>
       <div className={styles.heroSection}>
         <Image
-          src="/images/Tribute img.png"
+          src="/images/Tributeimg.png"
           alt="Pauline Adobea Dadzawa"
           fill
           priority
@@ -38,7 +46,7 @@ export default async function TributesPage() {
           <div className={styles.titleUnderline}></div>
         </div>
 
-        <section className={styles.brochureSection}>
+        <div className={styles.brochureSection}>
           <div className={styles.brochureLeft}>
             <p className={styles.capture}>Capturing the life of</p>
             <h2 className={styles.script}>our fiery Adobea</h2>
@@ -59,9 +67,9 @@ export default async function TributesPage() {
               />
             </div>
           </div>
-        </section>
+        </div>
 
-        <section className={styles.tributesSection}>
+        <div className={styles.tributesSection}>
           <h2 className={styles.sectionTitle}>Tributes</h2>
 
           <div className={styles.tributesList}>
@@ -87,17 +95,22 @@ export default async function TributesPage() {
           </div>
 
           <div className={styles.actionsRow}>
-            <Link href="/submit-tribute" className={styles.submitButton}>
+            <button onClick={() => router.push('/')}
+              className={styles.submitButton}>
               Submit Tribute
               <span className={styles.submitArrow}>⟶</span>
-            </Link>
+            </button>
 
-            <div className={styles.scrollTopWrapper}>
+            {/* <div className={styles.scrollTopWrapper}>
               <ScrollToTop />
-            </div>
+            </div> */}
+            <ScrollToTop />
           </div>
-        </section>
+        </div>
       </div>
     </main>
   );
 }
+
+
+

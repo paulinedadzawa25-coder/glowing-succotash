@@ -5,6 +5,9 @@ import Image from "next/image";
 import styles from "./TributeForm.module.css";
 
 export default function TributeForm() {
+  const [entityType, setEntityType] = useState<'INDIVIDUAL' | 'ORGANIZATION'>('INDIVIDUAL');
+  const [orgName, setOrgName] = useState('');
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -165,9 +168,25 @@ export default function TributeForm() {
                   ORGANIZATION
                 </button>
               </div>
+
+          
+      
             </div>
 
             <div className={styles.formGroup}>
+              {formData.relationship === 'ORGANIZATION' && (
+        <div>
+          <label>Organization Name</label>
+          <input
+                          className={styles.input} 
+
+            type="text"
+            value={orgName}
+            onChange={(e) => setOrgName(e.target.value)}
+            placeholder="Enter organization name"
+          />
+        </div>
+      )}
               <label className={styles.label}>
                 Email
                 <span className={styles.required}>(required)</span>
@@ -193,7 +212,7 @@ export default function TributeForm() {
               />
             </div>
 
-            <div className={styles.formGroup}>
+            {/* <div className={styles.formGroup}>
               <label className={styles.label}>What will you remember about Adobea?</label>
               <div className={styles.uploadButtons}>
                 <label className={styles.uploadBtn}>
@@ -211,7 +230,7 @@ export default function TributeForm() {
                 <span>or Upload Tribute</span>
                 <span>or Upload Photos and/or Videos</span>
               </div>
-            </div>
+            </div> */}
 
             {submitError && <div className={styles.error}>{submitError}</div>}
             {submitSuccess && <div className={styles.success}>Tribute submitted successfully!</div>}

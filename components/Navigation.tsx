@@ -10,6 +10,8 @@ import MobileMenu from './MobileMenu';
 export default function Navigation() {
   const pathname = usePathname();
   const isInfoPage = pathname === '/info';
+    const isTributePageoPage = pathname === '/tributes';
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -35,7 +37,7 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className={`${styles.nav} ${isInfoPage && !isScrolled ? styles.transparentNav : ''}`}>
+      <nav className={`${styles.nav} ${isInfoPage && !isScrolled ? styles.transparentNav : ''} ${isTributePageoPage && !isScrolled ? styles.transparentNav : ''}`}>
         <div className={styles.container}>
           <Link href="/" className={styles.logo}>
             <Image
