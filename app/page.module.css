@@ -303,13 +303,13 @@
   position: relative;
   width: 100%;
   min-height: 60vh;
-  background: #000;
-  display: flex;
+  background: linear-gradient(to right, #2d4027, #2d4027 calc((100% - 1400px) / 2), transparent calc((100% - 1400px) / 2), transparent calc(100% - (100% - 1400px) / 2), #2d4027 calc(100% - (100% - 1400px) / 2));
+  display: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4rem 0;
-  margin: 2rem 0 4rem;
+  padding: 1rem 0;
+  margin: 0rem 0 0rem;
 }
 
 .heroImageWrapper {
@@ -335,13 +335,16 @@
 }
 .heroImage {
  width: 100%;
-  height: 100vh;
+  height: 90vh;
   max-height: 800px;
+  position: relative;
   min-height: 540px;
-  object-fit: cover; /* Changed from contain to cover for bigger appearance */
+  object-fit: contain; /* Changed from contain to cover for bigger appearance */
   object-position: center center;
+      background: linear-gradient(to right, #2d4027, #2d4027 calc((100% - 1400px) / 2), transparent calc((100% - 1400px) / 2), transparent calc(100% - (100% - 1400px) / 2), #2d4027 calc(100% - (100% - 1400px) / 2));
+
   /* filter: grayscale(100%); Full grayscale */
-   transform: scale(1.5); 
+   transform: scale(1.2); 
 }
 
 .imageOverlay {

@@ -14,11 +14,11 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.container}>
           <MemorialIntro />
-          <div className={styles.heroSection}>
+         {/*  <div className={styles.heroSection}>
             <Image
               src="/images/Landingpage.png"
               alt="Pauline Adobea Dadzawa"
-              objectFit="cover"
+              objectFit="contain"
               objectPosition=""
               quality={100}
               priority
@@ -26,7 +26,7 @@ export default function Home() {
               height={900}
               className={styles.heroImage}
             />
-          </div>
+          </div> */}
 
           <section className={styles.bannerSection}>
             <div className={styles.bannerInner}>
