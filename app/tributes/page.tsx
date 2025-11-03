@@ -6,10 +6,20 @@ import Link from 'next/link';
 import styles from './page.module.css';
 import ScrollToTop from '@/components/ScrollToTop';
 import type { Tribute } from '@/types/tribute';
+import { scrollToElement } from '@/utils/scrollUtils';
 
 export default function TributesPage() {
   const [tributes, setTributes] = useState<Tribute[]>([]);
   const router = useRouter();
+
+  useEffect(() => {
+    // Handle scroll to form section after navigation
+    if (window.location.hash === '#formSection') {
+      setTimeout(() => {
+        scrollToElement('formSection');
+      }, 500); // Give more time for the page to fully load
+    }
+  }, []); // Run once when component mounts
 
   useEffect(() => {
     const fetchTributes = async () => {
@@ -41,13 +51,11 @@ export default function TributesPage() {
       </div>
 
       <div className={styles.contentContainer}>
-        <div className={styles.titleRow}>
-          <h1 className={styles.pageTitle}>Your Tributes</h1>
-          <div className={styles.titleUnderline}></div>
-        </div>
+        <h1 className={styles.pageTitle}>Your Tributes</h1>
+        <div className={styles.titleUnderline}></div>
 
         <div className={styles.brochureSection}>
-          <div className={styles.brochureLeft}>
+          <div className={styles.brochureContent}>
             <p className={styles.capture}>Capturing the life of</p>
             <h2 className={styles.script}>our fiery Adobea</h2>
             <Link href="/brochure" className={styles.brochureLink}>
@@ -56,21 +64,21 @@ export default function TributesPage() {
             </Link>
           </div>
 
-          <div className={styles.brochureRight}>
-            <div className={styles.photoFrame}>
-              <Image
-                src="/images/Tributeimg1.jpeg"
-                alt="Pauline Adobea Dadzawa"
-                width={260}
-                height={320}
-                className={styles.brochureImage}
-              />
-            </div>
+          <div className={styles.brochureImageWrapper}>
+            <Image
+              src="/images/Tributeimg1.jpeg"
+              alt="Pauline Adobea Dadzawa"
+              width={260}
+              height={320}
+              className={styles.brochureImage}
+              objectFit="cover"
+            />
           </div>
         </div>
 
         <div className={styles.tributesSection}>
           <h2 className={styles.sectionTitle}>Tributes</h2>
+          <div className={styles.titleUnderline}></div>
 
           <div className={styles.tributesList}>
             {tributes.length === 0 ? (
@@ -81,8 +89,10 @@ export default function TributesPage() {
                   <article className={styles.tribute}>
                     <div className={styles.tributeHeader}>
                       <div className={styles.tributeLabel}>Tribute from</div>
-                      <div className={styles.tributeName}>{t.name}</div>
-                      <div className={styles.tributeRelation}>{t.relationship}</div>
+                      <div className={styles.tributeAuthor}>
+                        <div className={styles.tributeName}>{t.name}</div>
+                        <div className={styles.tributeRelation}>{t.relationship}</div>
+                      </div>
                     </div>
                     <div className={styles.tributeContent}>
                       <p>{t.message}</p>
@@ -95,7 +105,11 @@ export default function TributesPage() {
           </div>
 
           <div className={styles.actionsRow}>
-            <button onClick={() => router.push('/')}
+            <button 
+              onClick={() => {
+                // Push to home page with hash
+                router.push('/#formSection', { scroll: false });
+              }} 
               className={styles.submitButton}>
               Submit Tribute
               <span className={styles.submitArrow}>⟶</span>

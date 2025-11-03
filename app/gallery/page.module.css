@@ -15,7 +15,7 @@
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 4rem;
+  padding: 0 10rem;
 }
 
 .header {
@@ -28,7 +28,8 @@
   font-size: 8rem;
   font-weight: 400;
   margin-top: 8rem;
-  font-family: var(--font-great-vibes), cursive;
+  font-family: 'Memorial Script';
+
   margin-bottom: 1.0rem;
   line-height: 1.2;
 }
@@ -69,7 +70,8 @@
   width: 40px;
   height: 40px;
   opacity: 0.9;
-  filter: invert(24%) sepia(11%) saturate(1400%) hue-rotate(70deg) brightness(94%) contrast(88%);
+  color: #2E4128;
+  /* filter: invert(24%) sepia(11%) saturate(1400%) hue-rotate(70deg) brightness(94%) contrast(88%); */
 }
 
 .subHeading {
@@ -77,7 +79,7 @@
   font-size: 1.75rem;
   line-height: 1.6;
   text-align: center;
-  font-family: "Albert Sans", sans-serif;
+  font-family: "Albert Sans";
   font-weight: 400;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
@@ -137,34 +139,46 @@
 
 .imageGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
   margin-bottom: 2rem;
+  width: 100%;
 }
 
 .imageWrapper {
   position: relative;
-  width: 100%;
-  padding-bottom: 100%; 
+  aspect-ratio: 1;
   background: #fff;
   overflow: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
+  user-select: none;
 }
 
 .image {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
   object-fit: cover !important;
   transition: all 0.4s ease;
+  pointer-events: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  -webkit-user-drag: none !important;
 }
 
 .imageWrapper:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  transform: translateY(-4px);
+  transform: translateY(-10px);
 }
-
-
 
 .buttonContainer {
   display: flex;
@@ -228,8 +242,8 @@
   }
 
   .imageGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
   }
 
   .heading {
@@ -308,6 +322,7 @@
 
   .subHeading {
     font-size: 1.2rem;
+
     br {
       display: none;
     }
@@ -351,8 +366,8 @@
   }
 
   .imageGrid {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
   }
 
   .sectionTitle {
@@ -366,7 +381,8 @@
 
   /* Optimize card height for mobile */
   .imageWrapper {
-    padding-bottom: 75%; /* 4:3 aspect ratio for better mobile viewing */
+    padding-bottom: 75%;
+    /* 4:3 aspect ratio for better mobile viewing */
   }
 }
 
@@ -393,11 +409,9 @@
 
   .imageWrapper::before {
     opacity: 1;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0.05) 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-  }
+    /* background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0) 100%);*/
+  } 
 }

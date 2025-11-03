@@ -1,0 +1,231 @@
+.bookContainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.navigationControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.navButton {
+  background: none;
+  border: 2px solid var(--primary, #374836);
+  color: var(--primary, #374836);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.navButton:hover:not(.disabled) {
+  background: var(--primary, #374836);
+  color: white;
+}
+
+.navButton.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pageIndicator {
+  font-family: 'Albert Sans', sans-serif;
+  color: var(--primary, #374836);
+  font-size: 1.1rem;
+}
+
+.book {
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.pagesContainer {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.doublePage {
+  display: flex;
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+.page {
+  flex: 1;
+  min-height: 800px;
+  padding: 3rem;
+  background: #fff;
+  position: relative;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.pageContent {
+  height: 100%;
+}
+
+.pageNumber {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Albert Sans', sans-serif;
+  color: var(--primary, #374836);
+  font-size: 0.9rem;
+}
+
+/* Cover Page Styles */
+.coverPage {
+  background: var(--primary, #374836);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.coverContent {
+  max-width: 80%;
+}
+
+.coverTitle {
+  font-family: 'Memorial Script', Georgia, serif;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.coverSubtitle {
+  font-family: 'Albert Sans', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.coverDivider {
+  margin: 2rem 0;
+}
+
+.coverSymbol {
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.coverDates {
+  font-family: 'Albert Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+/* Inner Pages Styles */
+.sectionTitle {
+  font-family: 'Memorial Script', Georgia, serif;
+  font-size: 2.5rem;
+  color: var(--primary, #374836);
+  margin-bottom: 2rem;
+}
+
+.programTitle {
+  font-family: 'Memorial Script', Georgia, serif;
+  font-size: 2.8rem;
+  color: var(--primary, #374836);
+  margin-bottom: 2rem;
+}
+
+.programDetails {
+  margin-top: 3rem;
+}
+
+.programDetails h3 {
+  font-family: 'Albert Sans', sans-serif;
+  font-size: 1.4rem;
+  color: var(--primary, #374836);
+  margin-bottom: 1.5rem;
+}
+
+.timeLocation {
+  background: rgba(244, 241, 234, 0.5);
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.timeLocation p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.bioContent p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #2d2d2d;
+}
+
+.tribute {
+  margin-bottom: 2rem;
+}
+
+.tribute h3 {
+  font-family: 'Albert Sans', sans-serif;
+  font-size: 1.4rem;
+  color: var(--primary, #374836);
+  margin-bottom: 1rem;
+}
+
+.tribute p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #2d2d2d;
+  font-style: italic;
+}
+
+@media (max-width: 1024px) {
+  .bookContainer {
+    padding: 1rem;
+  }
+
+  .page {
+    padding: 2rem;
+    min-height: 600px;
+  }
+
+  .coverTitle {
+    font-size: 2.8rem;
+  }
+
+  .coverSubtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 1.5rem;
+    min-height: 500px;
+  }
+
+  .coverTitle {
+    font-size: 2.4rem;
+  }
+
+  .coverSubtitle {
+    font-size: 1.3rem;
+  }
+
+  .sectionTitle,
+  .programTitle {
+    font-size: 2rem;
+  }
+}

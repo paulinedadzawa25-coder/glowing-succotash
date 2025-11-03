@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./TributeForm.module.css";
+import { handleHashNavigation } from "../utils/scrollUtils";
 
 export default function TributeForm() {
   const [entityType, setEntityType] = useState<'INDIVIDUAL' | 'ORGANIZATION'>('INDIVIDUAL');
@@ -16,6 +17,7 @@ export default function TributeForm() {
     message: ''
   });
   const [file, setFile] = useState<File | null>(null);
+  const [fileType, setFileType] = useState<'image' | 'video' | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [uploadProgress, setUploadProgress] = useState<number>(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -40,6 +42,9 @@ export default function TributeForm() {
       const fullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`.trim();
       body.append('name', fullName);
       body.append('relationship', formData.relationship);
+      if (formData.relationship === 'ORGANIZATION' && orgName.trim()) {
+        body.append('organization', orgName.trim());
+      }
       body.append('message', formData.message.trim());
       body.append('email', formData.email.trim());
       if (file) body.append('file', file);
@@ -100,10 +105,19 @@ export default function TributeForm() {
     const f = e.target.files && e.target.files[0];
     if (f) {
       setFile(f);
-      const url = URL.createObjectURL(f);
-      setPreviewUrl(url);
+      // Determine if it's an image or video
+      const type = f.type.startsWith('image/') ? 'image' : 'video';
+      setFileType(type);
+      
+      if (type === 'image') {
+        const url = URL.createObjectURL(f);
+        setPreviewUrl(url);
+      } else {
+        setPreviewUrl(null); // Don't show preview for videos
+      }
     } else {
       setFile(null);
+      setFileType(null);
       setPreviewUrl(null);
     }
   };
@@ -114,8 +128,13 @@ export default function TributeForm() {
       if (previewUrl) URL.revokeObjectURL(previewUrl);
     };
   }, [previewUrl]);
+
+  // Handle hash navigation when component mounts
+  useEffect(() => {
+    handleHashNavigation();
+  }, []);
   return (
-    <section className={styles.formSection}>
+    <section id="formSection" className={styles.formSection}>
       <div>
         <h2 className={styles.formTitle}>Submit your Tributes</h2>
         <div className={styles.formWrapper}>
@@ -212,25 +231,49 @@ export default function TributeForm() {
               />
             </div>
 
-            {/* <div className={styles.formGroup}>
+            <div className={styles.formGroup}>
               <label className={styles.label}>What will you remember about Adobea?</label>
               <div className={styles.uploadButtons}>
                 <label className={styles.uploadBtn}>
                   <span className={styles.plusIcon}>+</span>
-                  <span>add a file</span>
-                  <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
+                  <span>Upload Image</span>
+                  <input 
+                    type="file" 
+                    accept="image/*" 
+                    onChange={handleFileChange} 
+                    style={{ display: 'none' }} 
+                  />
                 </label>
                 <label className={styles.uploadBtn}>
                   <span className={styles.plusIcon}>+</span>
-                  <span>add a file</span>
-                  <input type="file" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
+                  <span>Upload Video</span>
+                  <input 
+                    type="file" 
+                    accept="video/*" 
+                    onChange={handleFileChange} 
+                    style={{ display: 'none' }} 
+                  />
                 </label>
               </div>
-              <div className={styles.uploadLabels}>
-                <span>or Upload Tribute</span>
-                <span>or Upload Photos and/or Videos</span>
+              <div className={styles.uploadNote}>
+                <p>Note: Uploaded content will be reviewed before being displayed on the tribute page.</p>
               </div>
-            </div> */}
+              {file && (
+                <div className={styles.uploadPreview}>
+                  <p>Selected file: {file.name}</p>
+                  <button 
+                    type="button" 
+                    className={styles.removeFile}
+                    onClick={() => {
+                      setFile(null);
+                      setPreviewUrl(null);
+                    }}
+                  >
+                    Remove
+                  </button>
+                </div>
+              )}
+            </div>
 
             {submitError && <div className={styles.error}>{submitError}</div>}
             {submitSuccess && <div className={styles.success}>Tribute submitted successfully!</div>}

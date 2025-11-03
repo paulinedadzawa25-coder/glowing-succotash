@@ -56,7 +56,22 @@
     padding: 2rem 1rem;
   }
   .footerLinks {
-    justify-content: flex-start;
-    gap: 2rem;
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .footerLinks > div {
+    min-width: auto;
+    flex: 1;
+    font-size: 0.9rem;
+  }
+  .footerName {
+    font-size: 1.4rem;
+  }
+  .footerPurpose {
+    font-size: 0.95rem;
+  }
+  .footerLinks strong {
+    font-size: 1rem;
   }
 }

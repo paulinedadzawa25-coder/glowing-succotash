@@ -1,0 +1,173 @@
+.main {
+  min-height: 100vh;
+  background: var(--background, #F4F1EA);
+  padding-top: 2rem;
+}
+
+.brochureSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.brochureHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.brochureTitle {
+  font-family: 'Memorial Script', Georgia, serif;
+  font-size: 4rem;
+  color: var(--primary, #374836);
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+
+.brochureSubtitle {
+  font-family: 'Albert Sans', sans-serif;
+  font-size: 1.5rem;
+  color: var(--primary, #374836);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.line {
+  height: 1px;
+  width: 100px;
+  background: rgba(55, 72, 54, 0.25);
+}
+
+.symbol {
+  opacity: 0.8;
+}
+
+.brochureContent {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.brochureArticle {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.programSection,
+.bioSection,
+.hymnsSection {
+  background: #fff;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.sectionTitle {
+  font-family: 'Albert Sans', sans-serif;
+  font-size: 2rem;
+  color: var(--primary, #374836);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #2d2d2d;
+  margin-bottom: 1.5rem;
+}
+
+.brochureSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.memorialDetails,
+.timeline {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.detailsTitle,
+.timelineTitle {
+  font-family: 'Albert Sans', sans-serif;
+  font-size: 1.5rem;
+  color: var(--primary, #374836);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.detailsContent p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.timelineList {
+  list-style: none;
+  padding: 0;
+}
+
+.timelineItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(55, 72, 54, 0.1);
+}
+
+.timelineItem:last-child {
+  border-bottom: none;
+}
+
+.year {
+  font-weight: 500;
+  color: var(--primary, #374836);
+}
+
+.event {
+  color: #2d2d2d;
+}
+
+@media (max-width: 1024px) {
+  .brochureContent {
+    gap: 2rem;
+  }
+
+  .brochureArticle,
+  .memorialDetails,
+  .timeline {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .brochureContent {
+    grid-template-columns: 1fr;
+  }
+
+  .brochureTitle {
+    font-size: 3rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .brochureSection {
+    padding: 2rem 1.5rem;
+  }
+}

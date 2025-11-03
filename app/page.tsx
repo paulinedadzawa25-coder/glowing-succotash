@@ -1,22 +1,35 @@
+'use client';
+
+import { useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Header from "../components/Header";
 import MemorialIntro from "../components/MemorialIntro";
 import BrochureSection from "../components/BrochureSection";
 import TributeSection from "../components/TributeSection";
 import TributeForm from "../components/TributeForm";
 import MemorialFooter from "../components/MemorialFooter";
+import RotatingQuotes from "../components/RotatingQuotes";
 import styles from "./page.module.css";
 import styless from "./gallery/page.module.css";
+import { handleHashNavigation } from "../utils/scrollUtils";
 
 export default function Home() {
+  useEffect(() => {
+    // Wait for the page to fully load before handling hash navigation
+    setTimeout(() => {
+      handleHashNavigation();
+    }, 500);
+  }, []);
+
   return (
     <>
       <main className={styles.main}>
         <div className={styles.container}>
           <MemorialIntro />
-         {/*  <div className={styles.heroSection}>
-            <Image
-              src="/images/Landingpage.png"
+          <div className={styles.heroSection}>
+            {/* <Image
+              src="/images/Landingpage1.png"
               alt="Pauline Adobea Dadzawa"
               objectFit="contain"
               objectPosition=""
@@ -25,8 +38,8 @@ export default function Home() {
               width={1600}
               height={900}
               className={styles.heroImage}
-            />
-          </div> */}
+            /> */}
+          </div>
 
           <section className={styles.bannerSection}>
             <div className={styles.bannerInner}>
@@ -73,20 +86,22 @@ export default function Home() {
 
               <div className={styles.quoteContent}>
                 <h3 className={styles.quoteHeading}>Pauline always said...</h3>
-                <blockquote className={styles.quoteText}>
-                  “Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh”
-                </blockquote>
-
-                <div className={styles.quoteCta}>
-                  <span className={styles.ctaText}>Click to view Brochure</span>
-                  <span className={styles.ctaIcon} aria-hidden>➔</span>
+                <div className={styles.quoteContentInner}>
+                  <RotatingQuotes />
+                  <Link href="/brochure" className={styles.quoteCta}>
+                    <span className={styles.ctaText}>Click to view Brochure</span>
+                    <span className={styles.ctaIcon} aria-hidden>➔</span>
+                  </Link>
                 </div>
               </div>
             </div>
+
           </section>
 
           <TributeSection />
-          <TributeForm />
+          <div id="submit-tribute">
+            <TributeForm />
+          </div>
         </div>
       </main>
     </>

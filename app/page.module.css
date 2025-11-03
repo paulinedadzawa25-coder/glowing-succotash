@@ -26,63 +26,98 @@
   align-items: flex-start;
   justify-content: space-between;
   padding-top: 4rem;
-  
+
 }
+
 /* Quote / testimonial band with patterned background */
 .quoteSection {
-  background-color: rgba(82, 91, 76, 0.98);
-  padding: 7rem 1rem;
+  background-color: rgba(130, 132, 109, 0.98);
+  padding: 7rem 0;
   color: #FFFFFF;
   position: relative;
   overflow: hidden;
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.quoteSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/LogoIcon.png');
+  background-repeat: repeat;
+  background-size: 500px 500px;
+  opacity: 0.15;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  background-color: rgba(130, 132, 109, 0.98);
 }
 
 .quoteInner {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: flex-start;
   gap: 5rem;
   padding: 0 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 .quoteImageWrap {
   flex: 0 0 340px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .quoteImage {
-  width: 340px;
-  height: 340px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
-  border-radius: 4px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-  border: 3px solid rgba(255,255,255,0.1);
+  object-position: center;
+  transform: scale(1.1); /* Zoom in slightly */
+  border-radius: 8px;
 }
 
 .quoteContent {
   flex: 1 1 auto;
   padding: 2rem 0 0;
-  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
 .quoteHeading {
-  font-family: "Great Vibes", cursive;
-  font-size: 4.5rem;
+  font-family: 'Albert Sans';
+  font-size: 3.0rem;
   font-weight: 400;
-  margin: 0 0 2.5rem 0;
+  margin: 0;
   color: #FFFFFF;
-  text-align: right;
+  text-align: left;
+}
+
+.quoteContentInner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
 }
 
 .quoteText {
-  font-family: var(--font-geist-sans);
-  font-size: 1.5rem;
+  font-family: 'Albert Sans light';
+  font-size: 1.2rem;
   line-height: 1.6;
   color: #FFFFFF;
   margin: 0 0 3rem 0;
   max-width: 700px;
   margin-left: auto;
-  font-weight: 300;
+  /* font-weight: 100; */
 }
 
 .quoteCta {
@@ -94,6 +129,9 @@
   cursor: pointer;
   font-family: var(--font-geist-sans);
   font-weight: 300;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  align-self: stretch;
 }
 
 .ctaText {
@@ -138,22 +176,26 @@
 
 @media (max-width: 768px) {
   .quoteSection {
-    padding: 5rem 1rem;
+    padding: 5rem 0;
   }
 
   .quoteInner {
     flex-direction: column;
     text-align: center;
     gap: 3rem;
+    padding: 0 1.5rem;
   }
 
   .quoteImageWrap {
     flex: 0 0 auto;
+    justify-content: center;
+    width: 100%;
   }
 
   .quoteImage {
     width: 260px;
     height: 260px;
+    object-position: center;
   }
 
   .quoteContent {
@@ -176,15 +218,43 @@
   .quoteCta {
     justify-content: center;
   }
+
+  .bannerSection {
+    padding: 4rem 0;
+  }
+
+  .bannerInner {
+    padding: 0 1.5rem;
+  }
+
+  .bannerName {
+    font-size: 4.5rem;
+  }
+
+  .bannerRemember {
+    font-size: 0.8rem;
+    letter-spacing: 0.5em;
+  }
+
+  .bannerSubtitle {
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+  }
+
+  .introSection > div,
+  .tributeSection > div {
+    padding: 0 1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
   .quoteSection {
-    padding: 4rem 1rem;
+    padding: 4rem 0;
   }
 
   .quoteInner {
-    padding: 0 0.5rem;
+    padding: 0 1.25rem;
+    gap: 2rem;
   }
 
   .quoteImage {
@@ -193,7 +263,7 @@
   }
 
   .quoteHeading {
-    font-size: 3rem;
+    font-size: 2.75rem;
     margin-bottom: 1.5rem;
   }
 
@@ -204,6 +274,34 @@
 
   .quoteCta {
     font-size: 1rem;
+  }
+
+  .bannerSection {
+    padding: 3rem 0;
+  }
+
+  .bannerInner {
+    padding: 0 1.25rem;
+  }
+
+  .bannerName {
+    font-size: 3.5rem;
+    line-height: 1;
+  }
+
+  .bannerRemember {
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    margin-bottom: 1rem;
+  }
+
+  .bannerSubtitle {
+    font-size: 1.1rem;
+  }
+
+  .bannerDivider {
+    gap: 20px;
+    margin: 1.25rem 0 1.5rem;
   }
 }
 
@@ -269,7 +367,8 @@
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  margin-top: -96px; /* This will pull the content up into the header area */
+  margin-top: -96px;
+  /* This will pull the content up into the header area */
 }
 
 .container {
@@ -300,16 +399,21 @@
 }
 
 .heroSection {
-  position: relative;
-  width: 100%;
-  min-height: 60vh;
-  background: linear-gradient(to right, #2d4027, #2d4027 calc((100% - 1400px) / 2), transparent calc((100% - 1400px) / 2), transparent calc(100% - (100% - 1400px) / 2), #2d4027 calc(100% - (100% - 1400px) / 2));
-  display: relative;
-  flex-direction: column;
-  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+  height: auto;
+  display: flex;
   justify-content: center;
-  padding: 1rem 0;
-  margin: 0rem 0 0rem;
+  align-items: center;
+  overflow: hidden;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-image: url('/images/Landingpage1.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  padding: 6rem 0;
 }
 
 .heroImageWrapper {
@@ -325,36 +429,31 @@
   width: 100%;
   position: relative;
   background: #333;
-  filter: grayscale(100%); /* Full grayscale */
+  filter: grayscale(100%);
+  /* Full grayscale */
   height: 100vh;
   max-height: 800px;
   min-height: 540px;
   display: flex;
+  
   flex-direction: column;
   align-items: center;
 }
-.heroImage {
- width: 100%;
-  height: 90vh;
-  max-height: 800px;
-  position: relative;
-  min-height: 540px;
-  object-fit: contain; /* Changed from contain to cover for bigger appearance */
-  object-position: center center;
-      background: linear-gradient(to right, #2d4027, #2d4027 calc((100% - 1400px) / 2), transparent calc((100% - 1400px) / 2), transparent calc(100% - (100% - 1400px) / 2), #2d4027 calc(100% - (100% - 1400px) / 2));
 
-  /* filter: grayscale(100%); Full grayscale */
-   transform: scale(1.2); 
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures full image is visible */
+  object-position: center center;
 }
 
 .imageOverlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to bottom,
-    rgba(0,0,0,0) 0%,
-    rgba(0,0,0,0.1) 80%,
-    rgba(0,0,0,0.2) 100%
-  );
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.1) 80%,
+      rgba(0, 0, 0, 0.2) 100%);
   pointer-events: none;
 }
 
@@ -370,21 +469,26 @@
   letter-spacing: 0.25em;
   text-transform: uppercase;
   border-radius: 2px;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* Banner under hero image matching provided design */
 .bannerSection {
   background: var(--background, #F4F1EA);
-  padding: 4.5rem 1rem 6rem;
+  padding: 4.5rem 0;
   text-align: center;
   color: var(--primary, #374836);
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  position: relative;
 }
 
 .bannerInner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1.25rem;
+  padding: 0 2rem;
+  width: 100%;
 }
 
 .bannerRemember {
@@ -393,12 +497,13 @@
   color: #6b6b60;
   font-size: 0.9rem;
   margin-bottom: 1.25rem;
-  font-family: "Geist Sans", sans-serif;
+  font-family: ' Albert San Regular';
 }
 
 .bannerName {
-  font-family: var(--font-great-vibes), Georgia, serif;
-  font-size: 5.4rem;
+  font-family: 'Memorial Script';
+
+  font-size: 6.4rem;
   line-height: 0.95;
   margin: 0.2rem 0 1rem 0;
   color: var(--primary, #374836);
@@ -415,18 +520,20 @@
 
 .bannerDivider .line {
   display: block;
-  width: 28%;
-  height: 1px;
-  background: rgba(55,72,54,0.25);
+  width: 80%;
+  height: 1.5px;
+  background: rgba(55, 72, 54, 0.25);
 }
 
 .ornament {
   font-size: 1.25rem;
-  color: rgba(55,72,54,0.85);
+  color: rgba(55, 72, 54, 0.85);
 }
 
 .bannerSubtitle {
   color: var(--primary, #374836);
+  font-family: 'Albert Sans';
+
   font-size: 1.3rem;
   max-width: 860px;
   margin: 0 auto;
@@ -443,11 +550,10 @@
   text-align: center;
   color: #fff;
   pointer-events: none;
-  background: linear-gradient(to top, 
-    rgba(0,0,0,0.4) 0%,
-    rgba(0,0,0,0.2) 40%,
-    rgba(0,0,0,0) 100%
-  );
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.2) 40%,
+      rgba(0, 0, 0, 0) 100%);
 }
 
 .heroBanner {
@@ -456,7 +562,7 @@
   color: var(--foreground, #2d2d2d);
   padding: 3rem 4rem;
   border-radius: 3px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
   transform: translateY(20%);
   pointer-events: auto;
   max-width: 90%;
@@ -486,7 +592,7 @@
 .heroDivider {
   height: 1px;
   width: 140px;
-  background: rgba(55,72,54,0.25);
+  background: rgba(55, 72, 54, 0.25);
   margin: 0.8rem auto;
 }
 
@@ -507,11 +613,35 @@
   .heroTitle {
     font-size: 4rem;
   }
+
+  .bannerName {
+    font-size: 5.5rem;
+  }
+
+  .bannerInner {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .heroSection {
+    padding: 5rem 0;
+  }
+
+  .heroBanner {
+    padding: 2.5rem 3rem;
+  }
 }
 
 @media (max-width: 768px) {
   .heroSection {
-    padding: 5rem 1.5rem 2rem;
+    padding: 4rem 0;
+    min-height: 90vh;
+  }
+
+  .heroBanner {
+    padding: 2rem 2.5rem;
+    max-width: 85%;
   }
 
   .remembering {
@@ -519,11 +649,21 @@
     font-size: 0.75rem;
     letter-spacing: 0.2em;
   }
+
+  .heroTitle {
+    font-size: 3.5rem;
+  }
 }
 
 @media (max-width: 480px) {
   .heroSection {
-    padding: 4rem 1rem 2rem;
+    padding: 3rem 0;
+    min-height: 85vh;
+  }
+
+  .heroBanner {
+    padding: 1.5rem 2rem;
+    max-width: 90%;
   }
 
   .remembering {
@@ -532,7 +672,62 @@
     letter-spacing: 0.15em;
     padding: 0.4rem 0.75rem;
   }
+
+  .heroTitle {
+    font-size: 3rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+  }
 }
+
+@media (max-width: 360px) {
+  .heroSection {
+    min-height: 80vh;
+    padding: 2rem 0;
+  }
+
+  .heroBanner {
+    padding: 1.25rem 1.5rem;
+    max-width: 95%;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .quoteSection {
+    padding: 3rem 0;
+  }
+
+  .quoteInner {
+    padding: 0 1rem;
+  }
+
+  .quoteImage {
+    width: 200px;
+    height: 200px;
+  }
+
+  .quoteHeading {
+    font-size: 2.5rem;
+  }
+
+  .bannerName {
+    font-size: 3rem;
+  }
+
+  .bannerRemember {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+  }
+
+  .bannerSubtitle {
+    font-size: 1rem;
+  }
+}
+
 /* Removed invalid CSS code */
 
 @media (max-width: 600px) {

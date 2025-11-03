@@ -21,11 +21,11 @@
 
 .mainInfo {
   flex: 1;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .name {
-  font-family: var(--font-great-vibes), cursive;
+  font-family: 'Memorial Script';
   font-size: 2.8rem;
   font-weight: 550;
   margin: 0 0 0.75rem 0;
@@ -35,13 +35,13 @@
 }
 
 .subtitle {
-  font-family: var(--font-albert-sans);
+  font-family: 'Albert Sans light';
   font-size: 1rem;
-  font-weight: 300;
+  /* font-weight: 300; */
   margin: 0;
   opacity: 0.9;
   line-height: 1.5;
-  max-width: 400px;
+  /* max-width: 700px; */
 }
 
 .linksContainer {
@@ -57,7 +57,8 @@
 }
 
 .linkSection h3 {
-  font-family: var(--font-albert-sans);
+  font-family: 'Albert Sans';
+
   font-size: 1rem;
   color: white;
   font-weight: 600;
@@ -68,8 +69,9 @@
 }
 
 .linkSection a {
-  font-family: var(--font-albert-sans);
   color: white;
+  font-family: 'Albert Sans light';
+
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 300;
@@ -92,9 +94,9 @@
     padding: 0 2rem;
     gap: 6rem;
   }
-  
+
   .name {
-    font-size: 2.25rem;
+    font-size: 2.1rem;
   }
 }
 
@@ -106,16 +108,16 @@
   .linksContainer {
     gap: 3rem;
   }
-  
+
   .mainInfo {
     max-width: 400px;
   }
-  
+
   .name {
-    font-size: 2rem;
+    font-size: 2.1rem;
     margin-bottom: 0.5rem;
   }
-  
+
   .subtitle {
     font-size: 0.95rem;
   }
@@ -152,7 +154,7 @@
   .linkSection {
     align-items: center;
   }
-  
+
   .linkSection a:hover {
     transform: translateY(-2px);
   }
@@ -169,7 +171,7 @@
   }
 
   .name {
-    font-size: 1.75rem;
+    font-size: 2.1rem;
   }
 
   .subtitle {

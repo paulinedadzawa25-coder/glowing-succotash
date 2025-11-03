@@ -11,6 +11,9 @@ export default function TributeCard({ tribute }: { tribute: Tribute }) {
         <div className={styles.info}>
           <h3 className={styles.name}>{tribute.name}</h3>
           <p className={styles.relationship}>{tribute.relationship}</p>
+          {tribute.organization && (
+            <p className={styles.organization}>{tribute.organization}</p>
+          )}
         </div>
         <time className={styles.date}>{tribute.date}</time>
       </div>

@@ -22,6 +22,11 @@ export default function InfoPage() {
             fill
             priority
             quality={100}
+            sizes="(max-width: 768px) 100vw, 1600px"
+            style={{
+              objectFit: 'contain',
+              objectPosition: 'top center'
+            }}
           />
         </div>
       </div>
@@ -84,7 +89,10 @@ export default function InfoPage() {
             </div>
           </div>
           <div className={styles.buttonContainer}>
-            <button onClick={navigateToTributes}
+            <button  onClick={() => {
+                // Push to home page with hash
+                router.push('/#formSection', { scroll: false });
+              }} 
               className={styles.submitButton}>
               Submit Tribute
               <span className={styles.arrow}>→</span>

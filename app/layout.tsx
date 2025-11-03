@@ -3,7 +3,9 @@ import localFont from 'next/font/local';
 import { Great_Vibes } from 'next/font/google';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import Providers from './providers';
 import "./globals.css";
+import "./styles/global-protection.css";
 
 const greatVibes = Great_Vibes({
   weight: '400',
@@ -15,27 +17,27 @@ const greatVibes = Great_Vibes({
 const albertSans = localFont({
   src: [
     {
-      path: '../public/images/Fonts/AlbertSans-Light.ttf',
+      path: '../public/Fonts/AlbertSans-Light.ttf',
       weight: '300',
       style: 'normal',
     },
     {
-      path: '../public/images/Fonts/AlbertSans-Regular.ttf',
+      path: '../public/Fonts/AlbertSans-Regular.ttf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../public/images/Fonts/AlbertSans-Medium.ttf',
+      path: '../public/Fonts/AlbertSans-Medium.ttf',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../public/images/Fonts/AlbertSans-SemiBold.ttf',
+      path: '../public/Fonts/AlbertSans-SemiBold.ttf',
       weight: '600',
       style: 'normal',
     },
     {
-      path: '../public/images/Fonts/AlbertSans-Bold.ttf',
+      path: '../public/Fonts/AlbertSans-Bold.ttf',
       weight: '700',
       style: 'normal',
     },
@@ -56,11 +58,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${albertSans.variable} ${greatVibes.variable}`}>
-        <Navigation />
-        <main>
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <Navigation />
+          <main>
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

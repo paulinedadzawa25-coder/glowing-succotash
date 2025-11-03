@@ -1,0 +1,217 @@
+.adminContainer {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #2e4128;
+  margin-bottom: 2rem;
+}
+
+.pendingSection,
+.historySection {
+  margin-bottom: 3rem;
+}
+
+.pendingSection h2,
+.historySection h2 {
+  font-size: 1.8rem;
+  color: #374836;
+  margin-bottom: 1.5rem;
+}
+
+.tributeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.tributeCard {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tributeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.tributeHeader h3 {
+  font-size: 1.4rem;
+  color: #2e4128;
+  margin: 0;
+}
+
+.tributeHeader p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.tributeBody {
+  margin-bottom: 1.5rem;
+}
+
+.tributeBody p {
+  margin: 0.5rem 0;
+  line-height: 1.5;
+}
+
+.mediaItem {
+  margin-top: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.mediaPreview {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.approvalActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.approveButton,
+.rejectButton {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1;
+}
+
+.approveButton {
+  background: #2e4128;
+  color: white;
+}
+
+.approveButton:hover {
+  background: #243420;
+}
+
+.rejectButton {
+  background: #fff;
+  color: #9c4141;
+  border: 1px solid #9c4141;
+}
+
+.rejectButton:hover {
+  background: #9c4141;
+  color: white;
+}
+
+.activityList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.activityItem {
+  background: #f8f8f8;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.activityHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.activityHeader h4 {
+  margin: 0;
+  color: #2e4128;
+}
+
+.mediaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+}
+
+.mediaStatus {
+  position: relative;
+}
+
+.thumbnailPreview {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.status {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0 4px 0 4px;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.status.approved {
+  background: #2e4128;
+}
+
+.status.rejected {
+  background: #9c4141;
+}
+
+.rejectionReason {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  font-size: 1.2rem;
+  color: #9c4141;
+}
+
+@media (max-width: 768px) {
+  .adminContainer {
+    padding: 1rem;
+  }
+
+  .tributeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .activityList {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}

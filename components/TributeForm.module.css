@@ -270,6 +270,50 @@
     gap: 1rem;
     text-align: center;
   }
+
+  .uploadNote {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+  }
+
+  .uploadNote p {
+    color: #374836;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .uploadPreview {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .uploadPreview p {
+    margin: 0;
+    color: #374836;
+    font-size: 0.9rem;
+  }
+
+  .removeFile {
+    background: none;
+    border: none;
+    color: #9c4141;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+
+  .removeFile:hover {
+    background: rgba(156, 65, 65, 0.1);
+  }
 }
 
 @media (max-width: 480px) {

@@ -1,24 +1,47 @@
 /* Responsive Utilities */
 :root {
+  /* Container Padding */
   --container-padding-desktop: 2.5rem;
   --container-padding-laptop: 2rem;
   --container-padding-tablet: 1.5rem;
   --container-padding-mobile: 1.25rem;
   
-  --font-size-h1-desktop: 5.4rem;
-  --font-size-h1-laptop: 4.5rem;
-  --font-size-h1-tablet: 3.5rem;
-  --font-size-h1-mobile: 2.8rem;
+  /* Typography Scale */
+  --font-size-h1-desktop: 4.5rem;
+  --font-size-h1-laptop: 3.8rem;
+  --font-size-h1-tablet: 3rem;
+  --font-size-h1-mobile: 2.4rem;
   
-  --font-size-h2-desktop: 3.25rem;
-  --font-size-h2-laptop: 2.75rem;
-  --font-size-h2-tablet: 2.25rem;
-  --font-size-h2-mobile: 2rem;
+  --font-size-h2-desktop: 3rem;
+  --font-size-h2-laptop: 2.5rem;
+  --font-size-h2-tablet: 2rem;
+  --font-size-h2-mobile: 1.8rem;
   
+  --font-size-h3-desktop: 2.25rem;
+  --font-size-h3-laptop: 2rem;
+  --font-size-h3-tablet: 1.75rem;
+  --font-size-h3-mobile: 1.5rem;
+  
+  --font-size-h4-desktop: 1.75rem;
+  --font-size-h4-laptop: 1.5rem;
+  --font-size-h4-tablet: 1.35rem;
+  --font-size-h4-mobile: 1.25rem;
+  
+  --font-size-body-large: 1.25rem;
   --font-size-body-desktop: 1.125rem;
   --font-size-body-laptop: 1.05rem;
   --font-size-body-tablet: 1rem;
   --font-size-body-mobile: 0.95rem;
+  --font-size-body-small: 0.875rem;
+  
+  /* Line Heights */
+  --line-height-heading: 1.2;
+  --line-height-body: 1.6;
+  
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.02em;
 }
 
 /* Container Utility */
@@ -32,17 +55,46 @@
 /* Responsive Text Utilities */
 .text-responsive {
   font-size: var(--font-size-body-desktop);
-  line-height: 1.6;
+  line-height: var(--line-height-body);
+}
+
+.text-large {
+  font-size: var(--font-size-body-large);
+  line-height: var(--line-height-body);
+}
+
+.text-small {
+  font-size: var(--font-size-body-small);
+  line-height: var(--line-height-body);
 }
 
 .heading-1-responsive {
   font-size: var(--font-size-h1-desktop);
-  line-height: 1.1;
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--letter-spacing-tight);
 }
 
 .heading-2-responsive {
   font-size: var(--font-size-h2-desktop);
-  line-height: 1.2;
+  line-height: var(--line-height-heading);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.heading-3-responsive {
+  font-size: var(--font-size-h3-desktop);
+  line-height: var(--line-height-heading);
+}
+
+.heading-4-responsive {
+  font-size: var(--font-size-h4-desktop);
+  line-height: var(--line-height-heading);
+}
+
+/* Improve readability */
+.readable-content {
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Grid Utilities */
@@ -93,12 +145,30 @@
     font-size: var(--font-size-h2-tablet);
   }
   
+  .heading-3-responsive {
+    font-size: var(--font-size-h3-tablet);
+  }
+  
+  .heading-4-responsive {
+    font-size: var(--font-size-h4-tablet);
+  }
+  
   .text-responsive {
     font-size: var(--font-size-body-tablet);
   }
   
+  .text-large {
+    font-size: var(--font-size-body-desktop);
+  }
+  
   .section-padding {
     padding: 4rem 0;
+  }
+  
+  /* Improve touch targets */
+  button, 
+  a {
+    padding: 0.8rem;
   }
 }
 
@@ -115,14 +185,32 @@
     font-size: var(--font-size-h2-mobile);
   }
   
+  .heading-3-responsive {
+    font-size: var(--font-size-h3-mobile);
+  }
+  
+  .heading-4-responsive {
+    font-size: var(--font-size-h4-mobile);
+  }
+  
   .text-responsive {
     font-size: var(--font-size-body-mobile);
+  }
+  
+  .text-large {
+    font-size: var(--font-size-body-tablet);
   }
   
   .section-padding {
     padding: 3rem 0;
   }
+  
+  /* Increase spacing for better readability */
+  p {
+    margin-bottom: 1.2em;
+  }
 }
+
 
 /* Touch Device Optimizations */
 @media (hover: none) {

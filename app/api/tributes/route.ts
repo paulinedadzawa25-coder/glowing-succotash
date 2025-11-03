@@ -26,6 +26,7 @@ export async function GET() {
       name: r.name,
       title: r.title,
       relationship: r.relationship,
+      organization: r.organization,
       message: r.message,
       email: r.email || '',
       date: r.date ? (typeof r.date === 'string' ? r.date : new Date(r.date).toISOString().split('T')[0]) : new Date().toISOString().split('T')[0],
@@ -46,6 +47,7 @@ export async function POST(request: Request) {
     const name = (form.get('name') as string) || '';
     const title = (form.get('title') as string) || undefined;
     const relationship = (form.get('relationship') as string) || '';
+    const organization = (form.get('organization') as string) || undefined;
     const message = (form.get('message') as string) || '';
     const email = (form.get('email') as string) || '';
 
@@ -93,6 +95,7 @@ export async function POST(request: Request) {
       name: name.trim(),
       title: title?.trim(),
       relationship: relationship.trim(),
+      organization: organization?.trim(),
       message: message.trim(),
       email: email.trim(),
       imageUrl,
@@ -107,6 +110,7 @@ export async function POST(request: Request) {
       name: name.trim(),
       title: title?.trim(),
       relationship: relationship.trim(),
+      organization: organization?.trim(),
       message: message.trim(),
       email: email.trim(),
       date: now.toISOString().split('T')[0],

@@ -17,7 +17,7 @@ export default function MemorialIntro() {
             honouring her request by keeping the proceedings modest and sincere.
           </p>
 
-          <p>
+          <p style={{marginTop: '20px'}}>
             Per her wishes, there will be a private burial, no one week observation, no wake keeping,
             no laying in state, no wreaths and no other funeral rites. Thank you for joining us in
             honouring her in the way she wished to be remembered—with simplicity, dignity, and

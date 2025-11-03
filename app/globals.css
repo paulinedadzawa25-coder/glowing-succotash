@@ -23,6 +23,39 @@
   --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Fonts */
+@font-face {
+  font-family: 'Albert Sans';
+  src: url('/Fonts/AlbertSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Albert Sans light';
+  src: url('/Fonts/AlbertSans-Light.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: ' Albert San Regular';
+  src: url('/Fonts/AlbertSans-Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Memorial Script';
+  src: url('/Fonts/tt0588m_.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Reset */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -64,8 +97,8 @@ a {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-dancing-script), Georgia, serif;
-  font-weight: 400;
+  font-family: 'Albert Sans', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
   line-height: 1.2;
   color: var(--primary);
 }
